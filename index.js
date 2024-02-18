@@ -1,68 +1,78 @@
 const inquirer = require('inquirer');
+const { makeBadge, ValidationError } = require('badge-maker');
 
 const fs = require('fs');
 
-function generateReadme(title, description, installation, usage, contribution, test, license, github, email) {
+const noLicenseFormat = {
+    label: `License`,
+    message: `No license`,
+    color: `red`,
+}
+
+function generateReadme({title, description, installation, usage, contribution, test, license, github, email}) {
+    var badge = "";
+    const licenseNotice = `This project is licensed under the ${license} license.`;
+    // console.log(license);
+    switch (license) {
+        case "MIT":
+            badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+            break;
+
+        case "APACHE 2.0":
+            badge = "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+            break;
+
+        case "GPL 3.0":
+            badge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+            break;
+
+        case "BSD 3":
+            badge = `[![License: BSD 3](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
+            break;
+
+        default:
+            badge = `[${makeBadge(noLicenseFormat)}](https://choosealicense.com/no-permission/)`;
+            break;
+    };
+
+    // console.log(`${title} ${description} ${installation} ${usage} ${contribution} ${test} ${license} ${github} ${email}`);
+
     return `# ${title}
+${badge}
 
-    ## Description
+## Description
+${description}
     
-    ${description}
+## Table of Contents
+- [Description](#description)  
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution Guidelines](#how-to-contribute)
+- [License](#license)
+- [Tests Instructions](#tests)
+- [Questions](#questions)
     
-    ## Table of Contents
+## Installation
+${installation}
     
-    - [Description](#description)  
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Contribution Guidelines](#How to Contribute)
-    - [License](#license)
-    - [Tests Instructions](#tests)
-    - [Questions](#questions)
-    
-    ## Installation
-    
-    ${installation}
-    
-    ## Usage
-    
-    ${usage}
+## Usage
+${usage}
 
-    ## Credits
     
-    List your collaborators, if any, with links to their GitHub profiles.
+## License
+${licenseNotice}
     
-    If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+## How to Contribute
+${contribution}
     
-    If you followed tutorials, include links to those here as well.
-    
-    ## License
-    
-    ${license}
-    
-    
-    ## Badges
-    
-    ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-    
-    Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-    
-    ## Features
-    
-    If your project has a lot of features, list them here.
-    
-    ## How to Contribute
-    
-    ${contribution}
-    
-    ## Tests
-    
-    ${test}
+## Tests
+${test}
 
-    ## Questions
+## Questions
+My Github profile: <https://github.com/${github}>
 
-    My Github profile: https://github.com/${github}
-    To reach me with additional questions: ${email}
-        
+To reach me with additional questions: <${email}> 
+    `;    
 };
 
 inquirer
@@ -115,8 +125,8 @@ inquirer
         }
     ])
     .then((response) => {
+        // console.log(response);
         const readme = generateReadme(response);
-        fs.writeFile('README.md', readme, (err) =>
-            err ? console.log(err) : console.log('Success!')
-        );        
-    })
+        fs.writeFile('dist/README.md', readme, (err) =>
+            err ? console.log(err) : console.log('Success!'))        
+    });
