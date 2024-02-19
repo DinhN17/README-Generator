@@ -88,17 +88,17 @@ inquirer
             message: 'Provide a short description of your project.' 
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'installation',
             message: 'What are the steps required to install your project?'
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'usage',
             message: 'Provide instructions and examples for use.'
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'contribution',
             message: 'If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so.'
         },

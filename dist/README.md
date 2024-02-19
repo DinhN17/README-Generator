@@ -1,8 +1,8 @@
-# fdsa
-[<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118" height="20" role="img" aria-label="License: No license"><title>License: No license</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="118" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="51" height="20" fill="#555"/><rect x="51" width="67" height="20" fill="#e05d44"/><rect width="118" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="265" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="410">License</text><text x="265" y="140" transform="scale(.1)" fill="#fff" textLength="410">License</text><text aria-hidden="true" x="835" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="570">No license</text><text x="835" y="140" transform="scale(.1)" fill="#fff" textLength="570">No license</text></g></svg>](https://choosealicense.com/no-permission/)
+# README Generator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-fdsa
+This project try to outline a high-quality README for opensource project on GitHUb. User can easily generate a README file by using command-line.
     
 ## Table of Contents
 - [Description](#description)  
@@ -14,23 +14,34 @@ fdsa
 - [Questions](#questions)
     
 ## Installation
-fdas
+- Step 1: clone project to your local computer.
+- Step 2: run "npm install" to install the required modules.
     
 ## Usage
-fdas
+- Step 1: run cmd "node index.js"
+- Step 2: input the project title.
+- Step 3: input the description.
+- Step 4: to input the installation guide for the project, press enter to open the editor. After finished, close and save it.
+- Step 5: to input how to use the project, press enter to open the editor. After finished, close and save it.
+- Step 6: to input the contribution guideline for the project, press enter to open the editor. After finished, close and save it.
+- Step 7: input the test instructions for the project.
+- Step 8: choose the license for the project. The license badge will be added to near the top of the README.
+- Step 9: input the GitHub username to create the link to the creator of the project profile on GitHub.
+- Step 10: input the email address for additional questions.
 
     
 ## License
-This project is licensed under the None license.
+This project is licensed under the MIT license.
     
 ## How to Contribute
-fdas
+- Step 1: balblabla
+- Step 2: blebleblebleu
     
 ## Tests
-fdsa
+To test run the command npm run test
 
 ## Questions
-My Github profile: <https://github.com/fd>
+My Github profile: <https://github.com/abc>
 
-To reach me with additional questions: <fdsa> 
+To reach me with additional questions: <abc@abc.com> 
     
