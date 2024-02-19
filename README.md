@@ -24,6 +24,8 @@ This project try to outline a high-quality README for opensource project on GitH
 
 ![Screenshot](assets/images/screenshot.png)
 
+[Demo video](https://watch.screencastify.com/v/AOjqfbkOSJ50lqojkGux)
+
 
 ## Credits
 
