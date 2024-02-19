@@ -1,18 +1,23 @@
+// import inquirer to get information from a prompt
 const inquirer = require('inquirer');
+
+// import badge maker to make license badges
 const { makeBadge, ValidationError } = require('badge-maker');
 
 const fs = require('fs');
 
+// create object for badge Nolicense
 const noLicenseFormat = {
     label: `License`,
     message: `No license`,
     color: `red`,
 }
 
+// function to generate README, input by object with properties of title, description, installation, usage, contribution, test, license, github, email
 function generateReadme({title, description, installation, usage, contribution, test, license, github, email}) {
     var badge = "";
     const licenseNotice = `This project is licensed under the ${license} license.`;
-    // console.log(license);
+    // create badge based on license
     switch (license) {
         case "MIT":
             badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
@@ -34,9 +39,7 @@ function generateReadme({title, description, installation, usage, contribution, 
             badge = `[${makeBadge(noLicenseFormat)}](https://choosealicense.com/no-permission/)`;
             break;
     };
-
-    // console.log(`${title} ${description} ${installation} ${usage} ${contribution} ${test} ${license} ${github} ${email}`);
-
+    // create readme with content in `` and variables.
     return `# ${title}
 ${badge}
 
@@ -75,6 +78,7 @@ To reach me with additional questions: <${email}>
     `;    
 };
 
+// function to prompt user
 inquirer
     .prompt([
         {
@@ -125,8 +129,8 @@ inquirer
         }
     ])
     .then((response) => {
-        // console.log(response);
         const readme = generateReadme(response);
+        // write readme to dist folder
         fs.writeFile('dist/README.md', readme, (err) =>
             err ? console.log(err) : console.log('Success!'))        
     });
